@@ -15,5 +15,11 @@ let getRandomElement = (array) => {
 let isEscCode = (evt) => {
     return evt.key == "Escape" || evt.key == "Esc";
 };
+let removeClass = (element, Class) =>{
+    element.classList.remove(Class);
+};
+let addClass = (element, Class) =>{
+    element.classList.add(Class);
+};
 
-export {getRandomInt, stringCount, getRandomElement, isEscCode};
+export {getRandomInt, stringCount, getRandomElement, isEscCode, removeClass, addClass};

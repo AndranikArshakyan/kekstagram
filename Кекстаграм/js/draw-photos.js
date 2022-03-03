@@ -16,4 +16,4 @@ let drawPhotos = () =>{
     pictures.appendChild(picturesListFragment);
 };
 
-export {drawPhotos};
+export {drawPhotos, photos};

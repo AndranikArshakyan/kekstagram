@@ -55,7 +55,7 @@ let createPhotosDescription = () => {
     photosDescriptionArray[i-1] = {
       id: i,
       url: `photos/${i}.jpg`,
-      description: 'Котик',
+      description: `Описание ${i} фото`,
       likes: getRandomInt(LIKES_COUNT.min, LIKES_COUNT.max),
       comments: getComment()
     };
