@@ -1,4 +1,4 @@
-
+import { isEscCode } from "./util.js";
 let decreaseImgSize = document.querySelector('.scale__control--smaller');
 let increaseImgSize = document.querySelector('.scale__control--bigger');
 let imgSizeValue = document.querySelector('.scale__control--value');
@@ -7,31 +7,27 @@ let imgPreview = document.querySelector('.img-upload__preview img');
 
 let changeImgSize = () =>{
     const SIZE_STEP = 25;
-    const DEFAULT_SIZE = 100;
-    let tempSize = DEFAULT_SIZE;
     
     decreaseImgSize.addEventListener('click', ()=>{
-        let currentSize = tempSize - SIZE_STEP;
-        tempSize = currentSize;
+        let currentSize = parseInt(imgSizeValue.value, 10) - SIZE_STEP ;
+        if (currentSize <= 25) {
+            currentSize = 25;
+        }
         imgSizeValue.value = currentSize + '%';
-        imgPreview.style.transform = `scale(${currentSize/100})`;
-        if (currentSize === 25) {
-            decreaseImgSize.disabled = true; 
-        };
-        increaseImgSize.disabled = false;
+        imgPreview.style.transform = `scale(${currentSize / 100})`;
+
     });
     
     increaseImgSize.addEventListener('click', ()=>{
-        let currentSize = tempSize + SIZE_STEP;
-        tempSize = currentSize;
-        imgSizeValue.value = currentSize + '%';
-        imgPreview.style.transform = `scale(${currentSize/100})`;
-        if (currentSize === 100) {
-            increaseImgSize.disabled = true; 
+        let currentSize = parseInt(imgSizeValue.value, 10) + SIZE_STEP ;
+        if (currentSize >= 100) {
+            currentSize = 100;
         };
-        decreaseImgSize.disabled = false;
-        
+
+        imgSizeValue.value = currentSize + '%';
+        imgPreview.style.transform = `scale(${currentSize / 100})`;
 
     });
+
 };
-export {changeImgSize, imgPreview};
+export {changeImgSize, imgPreview, imgSizeValue };

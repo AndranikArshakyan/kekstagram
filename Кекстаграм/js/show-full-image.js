@@ -1,6 +1,5 @@
 import { drawPhotos, photos } from "./draw-photos.js";
 import { isEscCode, removeClass, addClass} from "./util.js";
-
 drawPhotos();
 
 let fullPicturePreview = document.querySelector('.big-picture');
@@ -63,5 +62,6 @@ fullPictureCloseButton.addEventListener('click', () => {
     addClass(fullPicturePreview, 'hidden');
     removeClass(body, 'modal-open');
     socialComments.innerHTML = '';
+
 });
 export {showFullImage};
